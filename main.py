@@ -5,19 +5,31 @@ t.speed(1)
 t.shape('turtle')
 
 while True:
-    acao = input('\nRotacionar para a direita[d] ou esquerda[e]? ')
-    if acao == 'd':
+    while True:
+        acao = input('\nRotacionar para a direita[d] ou esquerda[e]? ')
+        if acao in 'DdEe':
+            break
+        else:
+            continue
+
+    if acao in 'Dd':
         rotacao = int(input('Quanto devemos rotacionar? '))
         t.right(rotacao)
-    elif acao == 'e':
+    if acao in 'Ee':
         rotacao = int(input('Quanto devemos rotacionar? '))
         t.left(rotacao)
 
-    acao = input('\nDeseja ir para frete[f] ou para traz[t]? ')
-    if acao == 'f':
+    while True:
+        acao = input('\nDeseja ir para frete[f] ou para traz[t]? ')
+        if acao in 'FfTt':
+            break
+        else:
+            continue
+
+    if acao in 'Ff':
         mov = int(input('Quantos pixels devemos percorrer? '))
         t.forward(mov)
-    elif acao == 't':
+    if acao in 'Tt':
         mov = int(input('Quantos pixels devemos percorrer? '))
         t.backward(mov)
 
@@ -26,5 +38,4 @@ while True:
         break
     else:
         continue
-
 print('finalizado.')
