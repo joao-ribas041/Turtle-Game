@@ -29,7 +29,7 @@ def rotacionar_esquerda(turtle):
 
 while True:
     while True:
-        if acao_girar == False:
+        if acao_girar(t) == False:
             break
         else:
             continue
