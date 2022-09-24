@@ -9,8 +9,12 @@ def acao_girar(turtle):
     acao = input('\nRotacionar para a direita[d] ou esquerda[e]? ')
     if acao in 'Dd':
         rotacionar_direita(turtle)
-    if acao in 'Ee':
+        return True
+    elif acao in 'Ee':
         rotacionar_esquerda(turtle)
+        return True
+    else:
+        return False
 
 
 def rotacionar_direita(turtle):
@@ -25,8 +29,7 @@ def rotacionar_esquerda(turtle):
 
 while True:
     while True:
-        acao = input('\nRotacionar para a direita[d] ou esquerda[e]? ')
-        if acao in 'DdEe':
+        if acao_girar == False:
             break
         else:
             continue
