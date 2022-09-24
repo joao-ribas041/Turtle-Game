@@ -4,6 +4,12 @@ t = Turtle()
 t.speed(1)
 t.shape('turtle')
 
+
+def acao_girar(turtle):
+    acao = input('\nRotacionar para a direita[d] ou esquerda[e]? ')
+    return acao
+
+
 while True:
     while True:
         acao = input('\nRotacionar para a direita[d] ou esquerda[e]? ')
