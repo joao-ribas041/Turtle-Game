@@ -7,7 +7,20 @@ t.shape('turtle')
 
 def acao_girar(turtle):
     acao = input('\nRotacionar para a direita[d] ou esquerda[e]? ')
-    return acao
+    if acao in 'Dd':
+        rotacionar_direita(turtle)
+    if acao in 'Ee':
+        rotacionar_esquerda(turtle)
+
+
+def rotacionar_direita(turtle):
+    rotacao = int(input('Quanto devemos rotacionar? '))
+    t.right(rotacao)
+
+
+def rotacionar_esquerda(turtle):
+    rotacao = int(input('Quanto devemos rotacionar? '))
+    t.left(rotacao)
 
 
 while True:
