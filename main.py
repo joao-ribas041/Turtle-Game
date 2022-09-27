@@ -28,14 +28,11 @@ def acao_andar(turtle):
         andar_traz(turtle)
 
 def acao_continuar():
-    while True:
-        acao = input('\nDeseja continuar? [n] para encerrar: ')
-        if acao in 'Nn':
-            break
-        else:
-            continue
-
-
+    acao = input('\nDeseja continuar? [n] para encerrar: ')
+    if acao in 'Nn':
+        return False
+    else:
+        return True
 
 def percorrer():
     mover = int(input('Quantos pixels devemos percorrer? '))
@@ -64,13 +61,6 @@ def andar_traz(turtle):
 while True:
     acao_girar(t)
     acao_andar(t)
-
-
-
-
-    acao = input('\nDeseja continuar? [n] para encerrar: ')
-    if acao == 'n':
+    if acao_continuar() != True:
         break
-    else:
-        continue
 print('finalizado.')
