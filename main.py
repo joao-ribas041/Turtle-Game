@@ -6,54 +6,67 @@ t.shape('turtle')
 
 
 def acao_girar(turtle):
-    acao = input('\nRotacionar para a direita[d] ou esquerda[e]? ')
+    while True:
+        acao = input('\nRotacionar para a direita[d] ou esquerda[e]? ')
+        if acao in 'DdEe':
+            break
+
     if acao in 'Dd':
         rotacionar_direita(turtle)
-        return True
     elif acao in 'Ee':
         rotacionar_esquerda(turtle)
-        return True
-    else:
-        return False
 
-
-def rotacionar_direita(turtle):
-    rotacao = int(input('Quanto devemos rotacionar? '))
-    t.right(rotacao)
-
-
-def rotacionar_esquerda(turtle):
-    rotacao = int(input('Quanto devemos rotacionar? '))
-    t.left(rotacao)
-
-
-while True:
-    while True:
-        if acao_girar(t) == False:
-            break
-        else:
-            continue
-
-    if acao in 'Dd':
-        rotacao = int(input('Quanto devemos rotacionar? '))
-        t.right(rotacao)
-    if acao in 'Ee':
-        rotacao = int(input('Quanto devemos rotacionar? '))
-        t.left(rotacao)
-
+def acao_andar(turtle):
     while True:
         acao = input('\nDeseja ir para frete[f] ou para traz[t]? ')
         if acao in 'FfTt':
             break
+
+    if acao in 'Ff':
+        andar_frente(turtle)
+    elif acao in 'Tt':
+        andar_traz(turtle)
+
+def acao_continuar():
+    while True:
+        acao = input('\nDeseja continuar? [n] para encerrar: ')
+        if acao in 'Nn':
+            break
         else:
             continue
 
-    if acao in 'Ff':
-        mov = int(input('Quantos pixels devemos percorrer? '))
-        t.forward(mov)
-    if acao in 'Tt':
-        mov = int(input('Quantos pixels devemos percorrer? '))
-        t.backward(mov)
+
+
+def percorrer():
+    mover = int(input('Quantos pixels devemos percorrer? '))
+    return mover
+
+def girar():
+    rotacionar = int(input('Quanto devemos rotacionar? '))
+    return rotacionar
+
+def rotacionar_direita(turtle):
+    rotacao = girar()
+    t.right(rotacao)
+
+def rotacionar_esquerda(turtle):
+    rotacao = girar()
+    t.left(rotacao)
+
+def andar_frente(turtle):
+    mover = percorrer()
+    t.forward(mover)
+
+def andar_traz(turtle):
+    mover = percorrer()
+    t.backward(mover)
+
+while True:
+    acao_girar(t)
+    acao_andar(t)
+
+
+
 
     acao = input('\nDeseja continuar? [n] para encerrar: ')
     if acao == 'n':
